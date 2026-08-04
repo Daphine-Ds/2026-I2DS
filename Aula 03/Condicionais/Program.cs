@@ -3,15 +3,15 @@
     private static void Main(string[] args)
     {
         /* Se (condição) for verdadeiro
-           executar essa função
-           Senão
-               execute essa função
+            executar essa função
+            Senão
+                execute essa função
 
             if(condição)
             {
-               codigo se verdadeiro
-               }else{
-                   codigo se falso
+                codigo se verdadeiro
+                }else{
+                codigo se falso
             }
         */
 
