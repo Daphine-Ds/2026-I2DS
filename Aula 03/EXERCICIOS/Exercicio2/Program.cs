@@ -5,46 +5,41 @@
         /* 
             LISTA DE EXERCICIOS 02
         */
-        double numero1;
-        double numero2;
-        double math;
+        int numero1;
+        int numero2;
+        Console.Write("Digite o Primeiro Número: ");
+        numero1 = int.Parse(Console.ReadLine());
 
-        Console.Write("Número 1: ");
-        numero1 = double.Parse(Console.ReadLine());       
-        Console.Write("Número 2: ");
-        numero2 = double.Parse(Console.ReadLine());       
+        Console.Write("Digite o Segundo Número: ");
+        numero2 = int.Parse(Console.ReadLine());
 
-        Console.WriteLine("Soma");
-        Console.WriteLine("Subtração");
-        Console.WriteLine("Multiplicação");
-        Console.WriteLine("Divisão");
+        Console.WriteLine("1 - Soma");
+        Console.WriteLine("2 - Subtração");
+        Console.WriteLine("3 - Multiplicação");
+        Console.WriteLine("4 - Divisão");
 
-
-        Console.Write("Escolha uma Opção: ");
-        int opcao = int.Parse(Console.ReadLine());
+        string operacao;
         
-        switch (opcao)
+        Console.Write("Selecione uma Operação: ");
+        operacao = Console.ReadLine();
+
+        switch (operacao)
         {
-            case 1:
-                math = numero1 + numero2;
-                Console.WriteLine($"A soma do {numero1} e {numero2} é igual a {math}");
+            case "1": 
+                Console.WriteLine(numero1 + numero2);
                 break;
-            case 2:
-                math = numero1 - numero2;
-                Console.WriteLine($"A subtração do {numero1} e {numero2} é igual a {math}");
+            case "2": 
+                Console.WriteLine(numero1 - numero2);
                 break;
-            case 3:
-                math = numero1 * numero2;
-                Console.WriteLine($"A multiplicação do {numero1} e {numero2} é igual a {math}");
+            case "3": 
+                Console.WriteLine(numero1 * numero2);
                 break;
-            case 4:
-                math = numero1 / numero2;
-                Console.WriteLine($"A divisão do {numero1} e {numero2} é igual a {math}");
+            case "4": 
+                Console.WriteLine(numero1 / numero2);
                 break;
             default:
-                Console.WriteLine("Opção Inválida!");
+                Console.WriteLine("Operador inválido.");
                 break;
         }
-
     }
 }
