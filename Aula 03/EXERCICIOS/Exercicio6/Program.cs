@@ -29,9 +29,13 @@
             {
                 Console.WriteLine(numero + " x " + n + " = " + (numero * n));
             }
+
+            Console.Write("Deseja continuar? (S/N): ");
+            resposta = Console.ReadLine();
         }
 
-        Console.WriteLine("lPrograma finaizado com sucesso.");
-        
-    }
+        Console.WriteLine("Programa finalizado com sucesso.");
+            
+        }
 }
+

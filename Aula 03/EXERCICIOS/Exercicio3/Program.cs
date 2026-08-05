@@ -23,15 +23,15 @@
 
         if (media >= 7)
         {
-            Console.WriteLine(nome + " Aprovado!!");
+            Console.WriteLine(nome + ": Aprovado!");
         }
         else if (media >= 5)
         {
-            Console.WriteLine(nome + " Recuperação!!");
+            Console.WriteLine(nome + ": Recuperação!");
         }
         else
         {
-            Console.WriteLine(nome + " Reprovado!!");
+            Console.WriteLine(nome + ": Reprovado!");
         }
         
     }

@@ -1,52 +1,79 @@
 ﻿internal class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
-
         /* LISTA DE EXERCICIOS - Exercicio 07 */
+        
+        Console.Write("Quantidade de Alunos: ");
+        int quantidade = int.Parse(Console.ReadLine());
 
-        double[] notas = new double[3];
+        double[] notas = new double[quantidade];
+        LerNotas(notas);
 
-        // Recebendo as notas
-        for (int i = 0; i < notas.Length; i++)
+        double media = CalcularMedia(notas);
+        double maior = EncontrarMaior(notas);
+        double menor = EncontrarMenor(notas);
+
+        int aprovados = ContarAprovados(notas);
+
+        Console.WriteLine();
+        Console.WriteLine($"Média da turma: {media}");
+        Console.WriteLine($"Maior nota: {maior}");
+        Console.WriteLine($"Menor nota: {menor}");
+        Console.WriteLine($"Quantidade aprovados: {aprovados}");
+    }
+    static void LerNotas(double[] notas)
+    {
+        for(int i = 0; i < notas.Length; i++)
         {
-            Console.Write("Digite a nota do aluno " + (i + 1) + ": ");
+            Console.Write($"Nota do aluno {i + 1}: ");
             notas[i] = double.Parse(Console.ReadLine());
         }
-
-        // Calculando soma || maior nota || menor nota || aprovados da turma
-    
-        double maior = notas[0];
-        double menor = notas[0];
+    }
+    static double CalcularMedia(double[] notas)
+    {
         double soma = 0;
-        int aprovados = 0;
-
-        for (int i = 0; i < notas.Length; i++)
+        for(int i = 0; i < notas.Length; i++)
         {
             soma += notas[i];
-
-            if (notas[i] > maior)
+        }
+        return soma / notas.Length;
+    }
+    static double EncontrarMaior(double[] notas)
+    {
+        double maior = notas[0];
+        for(int i = 1; i < notas.Length; i++)
+        {
+            if(notas[i] > maior)
             {
                 maior = notas[i];
             }
-            if (notas[i] < menor)
+        }
+        return maior;
+    }
+    static double EncontrarMenor(double[] notas)
+    {
+        double menor = notas[0];
+        for(int i = 1; i < notas.Length; i++)
+        {
+            if(notas[i] < menor)
             {
                 menor = notas[i];
             }
-            if (notas[i] >= 7)
+        }
+        return menor;
+    }
+    static int ContarAprovados(double[] notas)
+    {
+        int quantidade = 0;
+
+        for(int i = 0; i < notas.Length; i++)
+        {
+            if(notas[i] >= 7)
             {
-                aprovados++;
+                quantidade++;
             }
         }
-
-        // Calculando média final da turma
-
-        double media = soma / notas.Length;
-
-        Console.WriteLine("===== Resultado da Turma =====");
-        Console.WriteLine("Maior nota: " + maior);
-        Console.WriteLine("Menor nota: " + menor);
-        Console.WriteLine("Média total da turma: " + media);
-        Console.WriteLine("Quantidade de alunos Aprovados: " + aprovados);
+        return quantidade;
     }
 }
