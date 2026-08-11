@@ -1,217 +1,150 @@
-﻿
-internal class Program
+﻿internal class Program
 {
-    private static void Main(string[] args)
-    {
-        /* Personagem */
-
-        // Mago
-        Herois mago = new Herois(
-            "Mago Gui",// nome
-            2,// nível
-            15,// força
-            0.5,// agilidade
-            3,// inteligência
-            100// vida
-        );
-
-        // Elfo
-        Herois elfo = new Herois(
-            "Elfo Perosa",// nome
-            4, // nível
-            10,// força
-            10, // agilidade
-            2,// inteligência
-            100// vida
-        );
-
-        // Cavaleiro
-        Herois cavaleiro = new Herois(
-            "Cavaleiro Gi", // nome
-            3, // nível
-            0, // força
-            10, // agilidade
-            1, // inteligência
-            100 // vida
-        );
-
-
-        // Escolhendo o personagem pelo nome
-
-        Console.WriteLine("=== PERSONAGENS ===");
-
-        Console.WriteLine("Mago Gui");
-        Console.WriteLine("Elfo Perosa");
-        Console.WriteLine("Cavaleiro Gi");
-
-        Console.Write("\nDigite o nome do personagem: ");
-        string escolha = Console.ReadLine();
-
-        Herois personagemEscolhido = null;
-
-        if (escolha.ToLower() == mago.Nome.ToLower())
-        {
-            personagemEscolhido = mago;
-        }
-        else if (escolha.ToLower() == elfo.Nome.ToLower())
-        {
-            personagemEscolhido = elfo;
-        }
-        else if (escolha.ToLower() == cavaleiro.Nome.ToLower())
-        {
-            personagemEscolhido = cavaleiro;
-        }
-        else
-        {
-            Console.WriteLine("Personagem não encontrado!");
-            return;
-        }
-
-
-        // Menu das ações
-
-        int opcao = 0;
-
-        while (opcao != 5)
-        {
-            Console.WriteLine("\n=== MENU ===");
-            Console.WriteLine("1 - Apresentar personagem");
-            Console.WriteLine("2 - Evoluir personagem");
-            Console.WriteLine("3 - Atacar personagem");
-            Console.WriteLine("4 - Defender");
-            Console.WriteLine("5 - Sair");
-
-            Console.Write("\nEscolha uma opção: ");
-            opcao = int.Parse(Console.ReadLine());
-
-
-            // Apresentar
-
-            if (opcao == 1)
-            {
-                personagemEscolhido.Apresentar();
-            }
-
-
-            // Evoluir
-
-            else if (opcao == 2)
-            {
-                personagemEscolhido.Evoluir();
-            }
-
-
-            // Atacar
-
-            else if (opcao == 3)
-            {
-                Console.WriteLine("\n=== ESCOLHA O ALVO ===");
-
-                Console.WriteLine("Mago Gui");
-                Console.WriteLine("Elfo Perosa");
-                Console.WriteLine("Cavaleiro Gi");
-
-                Console.Write("\nDigite o nome do alvo: ");
-                string alvoNome = Console.ReadLine();
-
-                Herois alvo = null;
-
-                if (alvoNome.ToLower() == mago.Nome.ToLower())
-                {
-                    alvo = mago;
-                }
-                else if (alvoNome.ToLower() == elfo.Nome.ToLower())
-                {
-                    alvo = elfo;
-                }
-                else if (alvoNome.ToLower() == cavaleiro.Nome.ToLower())
-                {
-                    alvo = cavaleiro;
-                }
-                else
-                {
-                    Console.WriteLine("Personagem não encontrado!");
-                    continue;
-                }
-            }
-        }
-    }     
-
-
     public class Personagem
     {
-        public string Nome { get; protected set; }
-    }
+        public string Nome {get; private set;}
+        public int Nivel {get; protected set;}
+        public int Experiencia {get; private set;}
+        public int Forca {get; protected set;}
+        public int Agilidade {get; protected set;}
+        public int Inteligencia {get; protected set;}
+        public int Vida {get; protected set;} 
 
-
-    public class Herois : Personagem
-    {
-        public int Nivel { get; protected set; }
-        public int Forca { get; protected set; }
-        public double Agilidade { get; protected set; }
-        public int Inteligencia { get; protected set; }
-        public int Vida { get; protected set; }
-
-        // Indica se o personagem está se defendendo
-        protected bool EstaDefendendo { get; set; }
-
-
-        public Herois(
-            string nome,
-            int nivel,
-            int forca,
-            double agilidade,
-            int inteligencia,
-            int vida)
+        // Método Construtor
+        public Personagem(string nome, int forca, int agilidade, int inteligencia, int vida)
         {
             Nome = nome;
-            Nivel = nivel;
             Forca = forca;
             Agilidade = agilidade;
             Inteligencia = inteligencia;
             Vida = vida;
+            Experiencia = 0;
+            Nivel = 1; 
         }
 
-
-        // Método para apresentar o personagem
-
-        public void Apresentar()
+        public virtual void ApresentarSe()
         {
-            Console.WriteLine("\n=== APRESENTAÇÃO ===");
-
-            Console.WriteLine("Olá! Eu sou " + Nome + "!");
+            Console.WriteLine($"Nome: {Nome}");
+            Console.WriteLine($"Nível: {Nivel}");
+            Console.WriteLine($"Experiência: {Experiencia}");
+            Console.WriteLine($"Força: {Forca}");
+            Console.WriteLine($"Agilidade: {Agilidade}");
+            Console.WriteLine($"Inteligência: {Inteligencia}");
+            Console.WriteLine($"Vida: {Vida}");
         }
 
+        public virtual void Atacar(Personagem alvo)
+        {
+            int dano = Forca;
+            Console.WriteLine($"{Nome} atacou {alvo.Nome}");
 
-        // Método para evoluir
+            alvo.Defender(dano);
+            GanharExperiencia(20);       
+        }
 
-        public void Evoluir()
+        public virtual void Defender(int dano)
+        {
+            int danoRecebido = dano - Agilidade;
+            if(danoRecebido < 1)
+            {
+                danoRecebido = 1;
+            } 
+            Vida -= danoRecebido;
+            if(Vida < 0)
+            {
+                Vida = 0;
+            }
+            Console.WriteLine($"Dano Recebido: {danoRecebido}");
+            Console.WriteLine($"Vida de  {Nome}: {Vida}");
+        }
+
+        public void GanharExperiencia(int experiencia)
+        {
+            Experiencia += experiencia;
+            Console.WriteLine($"{Nome} ganhou {experiencia} XP");
+
+            VerificarEvolucao();
+        }
+
+        public void VerificarEvolucao()
+        {
+            int experienciaNecessaria = Nivel * 100;
+            if (Experiencia >= experienciaNecessaria)
+            {
+                Evoluir();
+            }
+        }
+
+        protected virtual void Evoluir()
+        {
+            Nivel++; // Nivel = Nivel + 1
+            Forca += 2; // Forca = Forca + 2
+            Agilidade += 2;
+            Inteligencia +=2;
+            Vida += 10;
+            Console.WriteLine();
+            Console.WriteLine("========================================");
+            Console.WriteLine("              LEVEL UP!");
+            Console.WriteLine("========================================");
+            Console.WriteLine();
+            Console.WriteLine($"{Nome} evoluiu para o nível {Nivel}");
+            Console.WriteLine($"Força: {Forca}");
+            Console.WriteLine($"Agilidade: {Agilidade}");
+            Console.WriteLine($"Inteligência: {Inteligencia}");
+            Console.WriteLine($"Vida: {Vida}");
+            Console.WriteLine("========================================");
+            Console.WriteLine();
+        }
+
+        public bool EstaVivo()
+        {
+            return Vida > 0;
+        }
+    }
+    // ======================================================
+    // MAGO
+    // ======================================================
+    public class Mago : Personagem
+    {
+        public Mago(string nome): base(nome, 5, 7, 25, 90){ }
+
+        public override void Atacar(Personagem alvo)
+        {
+            int dano = Inteligencia;
+            Console.WriteLine(
+                $"{Nome} lançou uma magia contra {alvo.Nome}");
+            alvo.Defender(dano);
+            GanharExperiencia(20);
+        }
+
+        protected override void Evoluir()
         {
             Nivel++;
-            Forca += 5;
-            Agilidade += 1;
-            Inteligencia += 1;
-            Vida += 20;
+            Forca++; // Forca = Forca + 2
+            Agilidade += 2;
+            Inteligencia +=5;
+            Vida += 15;
 
-            Console.WriteLine("\n" + Nome + " evoluiu!");
-            Console.WriteLine("Novo nível: " + Nivel);
-            Console.WriteLine("Força: " + Forca);
-            Console.WriteLine("Agilidade: " + Agilidade);
-            Console.WriteLine("Inteligência: " + Inteligencia);
-            Console.WriteLine("Vida: " + Vida);
+            Console.WriteLine();
+            Console.WriteLine("========================================");
+            Console.WriteLine("              LEVEL UP!");
+            Console.WriteLine("========================================");
+            Console.WriteLine();
+            Console.WriteLine($"{Nome} evoluiu para o nível {Nivel}");
+            Console.WriteLine($"Força: {Forca}");
+            Console.WriteLine($"Agilidade: {Agilidade}");
+            Console.WriteLine($"Inteligência: {Inteligencia}");
+            Console.WriteLine($"Vida: {Vida}");
+            Console.WriteLine("========================================");
+            Console.WriteLine();
+
+
         }
-
-
-        // Método para atacar
-
-        
-
-        // Método para receber dano
-
-
-
-        // Método para defender
-
-        
     }
-}   
+
+
+    private static void Main(string[] args)
+    {
+        Console.WriteLine("Hello, World!");
+    }
+}
