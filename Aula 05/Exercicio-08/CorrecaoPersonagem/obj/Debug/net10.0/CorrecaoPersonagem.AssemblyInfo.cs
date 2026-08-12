@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CorrecaoPersonagem")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3e4b240c0d37b31e839c8af99758564b86e396a3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4bcc2c954975d5545a76dff07a8a59e3d02920bb")]
 [assembly: System.Reflection.AssemblyProductAttribute("CorrecaoPersonagem")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CorrecaoPersonagem")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

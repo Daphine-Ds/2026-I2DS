@@ -1,0 +1,15 @@
+/Users/DS1/Documents/2026-I2DS/Aula 05/Exercicio-08/CorrecaoPersonagem/bin/Debug/net10.0/CorrecaoPersonagem
+/Users/DS1/Documents/2026-I2DS/Aula 05/Exercicio-08/CorrecaoPersonagem/bin/Debug/net10.0/CorrecaoPersonagem.deps.json
+/Users/DS1/Documents/2026-I2DS/Aula 05/Exercicio-08/CorrecaoPersonagem/bin/Debug/net10.0/CorrecaoPersonagem.runtimeconfig.json
+/Users/DS1/Documents/2026-I2DS/Aula 05/Exercicio-08/CorrecaoPersonagem/bin/Debug/net10.0/CorrecaoPersonagem.dll
+/Users/DS1/Documents/2026-I2DS/Aula 05/Exercicio-08/CorrecaoPersonagem/bin/Debug/net10.0/CorrecaoPersonagem.pdb
+/Users/DS1/Documents/2026-I2DS/Aula 05/Exercicio-08/CorrecaoPersonagem/obj/Debug/net10.0/CorrecaoPersonagem.GeneratedMSBuildEditorConfig.editorconfig
+/Users/DS1/Documents/2026-I2DS/Aula 05/Exercicio-08/CorrecaoPersonagem/obj/Debug/net10.0/CorrecaoPersonagem.AssemblyInfoInputs.cache
+/Users/DS1/Documents/2026-I2DS/Aula 05/Exercicio-08/CorrecaoPersonagem/obj/Debug/net10.0/CorrecaoPersonagem.AssemblyInfo.cs
+/Users/DS1/Documents/2026-I2DS/Aula 05/Exercicio-08/CorrecaoPersonagem/obj/Debug/net10.0/CorrecaoPersonagem.csproj.CoreCompileInputs.cache
+/Users/DS1/Documents/2026-I2DS/Aula 05/Exercicio-08/CorrecaoPersonagem/obj/Debug/net10.0/CorrecaoPersonagem.sourcelink.json
+/Users/DS1/Documents/2026-I2DS/Aula 05/Exercicio-08/CorrecaoPersonagem/obj/Debug/net10.0/CorrecaoPersonagem.dll
+/Users/DS1/Documents/2026-I2DS/Aula 05/Exercicio-08/CorrecaoPersonagem/obj/Debug/net10.0/refint/CorrecaoPersonagem.dll
+/Users/DS1/Documents/2026-I2DS/Aula 05/Exercicio-08/CorrecaoPersonagem/obj/Debug/net10.0/CorrecaoPersonagem.pdb
+/Users/DS1/Documents/2026-I2DS/Aula 05/Exercicio-08/CorrecaoPersonagem/obj/Debug/net10.0/CorrecaoPersonagem.genruntimeconfig.cache
+/Users/DS1/Documents/2026-I2DS/Aula 05/Exercicio-08/CorrecaoPersonagem/obj/Debug/net10.0/ref/CorrecaoPersonagem.dll
