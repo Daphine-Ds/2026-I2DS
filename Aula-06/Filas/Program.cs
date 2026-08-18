@@ -2,33 +2,50 @@
 {
     private static void Main(string[] args)
     {
-        Console.WriteLine("\n=== TRABALHANDO COM PILHAS (FILO) ===");
+        Console.WriteLine("\n=== TRABALHANDO COM FILAS (FIFO) ===");
 
-        // 1 - Criar uma nova pilha vazia
-        Stack<string> pilhaLivros = new Stack<string>();
+        // 1 - Criar uma nova Fila vazia
+        Queue<string> filaBanco = new Queue<string>();
 
-        // 2 - Adicionar elementos em uma pilha
-        pilhaLivros.Push("Dom Quixote");
-        pilhaLivros.Push("O Morro dos Ventos Uivantes");
-        pilhaLivros.Push("O Cortiço");
+        // 2 - Adicionar Elementos na Fila
+        filaBanco.Enqueue("Daphine");    // 0
+        filaBanco.Enqueue("Lívia");     // 1
+        filaBanco.Enqueue("Sofia");    // 2
+        filaBanco.Enqueue("Gilo");    // 3
 
-        // 3 - Percorrer todos os elementos de uma pilha
+        // 3 - Percorrer Elementos de um Fila
         Console.WriteLine();
-        foreach (var livro in pilhaLivros)
+        foreach(var pessoa in filaBanco)
         {
-            Console.WriteLine(livro);
+            Console.WriteLine(pessoa);
         }
 
-        // 4 - Remover um elemento da pilha
-        string livroRemovido = pilhaLivros.Pop();
+        // 4 - Retirar um Elemento da Lista
+        string pessoaRetirada = filaBanco.Dequeue();
         Console.WriteLine();
-        Console.WriteLine($"O Livro retirado foi: {livroRemovido}");
+        Console.WriteLine($"O Nome chamado foi: {pessoaRetirada}");
 
-        pilhaLivros.Push("Dom Casmurro");
+        filaBanco.Enqueue("Guilherme");
         Console.WriteLine();
-        foreach (var livro in pilhaLivros)
+        foreach(var pessoa in filaBanco)
         {
-            Console.WriteLine(livro);
+            Console.WriteLine(pessoa);
         }
+
+        // 5 - Verificar se existe um determinado Elemento na Lista
+        string procurar = "Lívia";
+
+        bool achou = filaBanco.Contains(procurar);
+
+        Console.WriteLine();
+        if (achou)
+        {
+            Console.WriteLine($"{procurar} está na fila!");
+        }
+        else
+        {
+            Console.WriteLine($"{procurar} não está na fila");
+        }
+        Console.WriteLine();
     }
 }
